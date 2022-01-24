@@ -1,0 +1,249 @@
+#include <iostream>
+using namespace std;
+
+ /*Вложеный класс - это класс, полностью определённый внутри другого класса. И, если объект обычного класса, как правило существует самостоятельно, то объекст вложенного класса должен быть привязан к объекту класса в котором описан этот вложенный класс.
+ class A{...};
+ class B{
+ public:
+ Вложенный класс А инкапсулирован внутри области видимости класса А
+ class A{...};
+ здесь используется вложенный класс А
+ А*obj;
+ };
+void main()
+{
+Вложенный А невидим в данной области видимости
+поэтому здесь используется глобальный класс В
+А*obj2;
+}
+
+class A{
+public:  лучше писать через private
+  ....
+private:
+	class B{
+		friend class A; Объявление друга
+		B(int val=0) Конструктор
+		B* next; указатель на собственный класс
+		int value;
+		};
+	B*obj;
+}
+
+void main()
+{
+	A::B*ptr;
+}
+
+class A
+ public:
+ private:
+ class B
+ {
+
+ }
+
+*/
+
+//class A
+//{
+//public:
+//	
+//private:
+//	class B
+//	{
+//	public:
+//		friend class A; 
+//		B(int val = 0);
+//		B* next;
+//		int value;
+//		void show()
+//		{
+//			cout << value;
+//		}
+//	};
+//};
+
+////К имени вложенного класса мы обращаемся через имя объемлющего это происходит в глобальной области видимости
+//A::B::B(int val)
+//{
+//	value = val;
+//	next = 0;
+//};
+
+/*
+* class A{
+* public:
+* private:
+*	class B;
+*		B*obj;
+*	};
+*/
+
+/*
+* class A::B{
+* public:
+* B(int val=0);
+* B*next;
+* int value;
+* 
+* };
+*/
+
+
+//class A::B
+//{
+//public:
+//		B(int val = 0);
+//		B* next;
+//		int value;
+//};
+
+/*
+* class A
+* {
+* public:
+* ...
+* private:
+* объявление необходимо
+* class B;
+* B*obj;
+* B x; ошибка
+* 
+*/
+
+//class A
+//{
+//public:
+//private:
+//	class B;
+//	B* obj;
+//	//B x; ошибка
+//
+//};
+
+/*
+* class A{
+* public:
+* ...
+* private:
+* Объявление А::B
+* class B;
+* class Ref{
+* pli имеет тип А::B*
+* B* pli;
+* };
+* Определение А::B 
+* class B{
+* pref имеет тип А::Ref
+* Ref* pref;
+* };
+* };
+* 
+* class A{
+* public:
+* int init(int);
+* private:
+*	class A::B{
+* public:
+*	B(int val=0);
+*	void mf(const A&);
+*	int value;
+* };
+* };
+* A::B::B(int val)
+* {
+* A::inint()- не статический член класса А
+* Должен использоваться через объекст или указатель на тип А
+* value=init(val);//Неверное использование init
+* };
+* void A::B::mf(A&i1)
+* {
+*	обращаетя к init() по ссылке
+*	memb=i1.init();
+* }
+* 
+* 
+* Агригация-включение объекта одного класса в состав объекта другого класса
+*/
+
+
+class Point
+{
+	int x;
+	int y;
+public:
+	Point() { x = y = 0; };
+	void SetPoint(int iX, int iY)
+	{
+		x = iX;
+		y = iY;
+	}
+	void Show()
+	{
+		cout << "[" << x << ";" << y << "]";
+	}
+};
+
+class Figura
+{
+	Point* obj;
+	int count;
+	int color;
+public:
+	Figura()
+	{
+		count = color = 0;
+		obj = NULL;
+	}
+	
+	void CreateFigura(int cr, int ct)
+	{
+		if (ct < 3)
+		{
+			exit(0);
+		}
+		count = ct;
+		color = cr;
+		obj = new Point[count];
+		if (!obj)
+		{
+			exit(0);
+		}
+		int tempX, tempY;
+		for (int i = 0; i < count; i++)
+		{
+			cout << "Set X\n";
+			cin >> tempX;
+			cout << "Set Y\n";
+			cin >> tempY;
+			obj[i].SetPoint(tempX, tempY);
+		}
+	}
+
+	void ShowFigura()
+	{
+		cout << "Color " << color << "\n\nPoints " << count << "\n\n";
+		for (int i = 0; i < count; i++)
+		{
+			obj[i].Show();
+		}
+	}
+	~Figura()
+	{
+		if (obj != NULL)
+		{
+			delete[] obj;
+		}
+	}
+
+};
+
+int main()
+{
+	Figura f;
+	f.CreateFigura(255, 3);
+	f.ShowFigura();
+
+	return 0;
+}
