@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Potoki 3", "Potoki 3\Potoki 3.vcxproj", "{F78B0B80-F3B3-4514-92CE-BBC7FBF4F6B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F78B0B80-F3B3-4514-92CE-BBC7FBF4F6B0}.Debug|x64.ActiveCfg = Debug|x64
+		{F78B0B80-F3B3-4514-92CE-BBC7FBF4F6B0}.Debug|x64.Build.0 = Debug|x64
+		{F78B0B80-F3B3-4514-92CE-BBC7FBF4F6B0}.Debug|x86.ActiveCfg = Debug|Win32
+		{F78B0B80-F3B3-4514-92CE-BBC7FBF4F6B0}.Debug|x86.Build.0 = Debug|Win32
+		{F78B0B80-F3B3-4514-92CE-BBC7FBF4F6B0}.Release|x64.ActiveCfg = Release|x64
+		{F78B0B80-F3B3-4514-92CE-BBC7FBF4F6B0}.Release|x64.Build.0 = Release|x64
+		{F78B0B80-F3B3-4514-92CE-BBC7FBF4F6B0}.Release|x86.ActiveCfg = Release|Win32
+		{F78B0B80-F3B3-4514-92CE-BBC7FBF4F6B0}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC88B9BC-5A5E-4E37-B362-C06DE3B1DDCD}
+	EndGlobalSection
+EndGlobal
